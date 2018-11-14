@@ -89,7 +89,6 @@ document.onkeyup = function (event) {
         if (userGuess === hiddenTitle[i]) {
             console.log("groovy");
             score++;
-            hiddenTitle.push(underLine.indexOf(i));
         } 
     }
 
@@ -99,23 +98,18 @@ document.onkeyup = function (event) {
 
     //keep working on this logic 
 
-    if ((userGuess !== hiddenTitle[0]) || (userGuess !== hiddenTitle[1]) || (userGuess !== hiddenTitle[2]) || (userGuess !== hiddenTitle[3]) 
-        (userGuess !== hiddenTitle[4]) || (userGuess !== hiddenTitle[5]) || (userGuess !== hiddenTitle[6]) || (userGuess !== hiddenTitle[7])
-        (userGuess !== hiddenTitle[8]) || (userGuess !== hiddenTitle[9]) || (userGuess !== hiddenTitle[10]) || (userGuess !== hiddenTitle[11])
-        (userGuess !== hiddenTitle[12]) || (userGuess !== hiddenTitle[13]) || (userGuess !== hiddenTitle[14]) || (userGuess !== hiddenTitle[15])
-        (userGuess !== hiddenTitle[16]) || (userGuess !== hiddenTitle[17]) || (userGuess !== hiddenTitle[18]) || (userGuess !== hiddenTitle[19])){
+    if ((userGuess !== hiddenTitle[0]) && (userGuess !== hiddenTitle[1]) && (userGuess !== hiddenTitle[2]) && (userGuess !== hiddenTitle[3]) &&
+        (userGuess !== hiddenTitle[4]) && (userGuess !== hiddenTitle[5]) && (userGuess !== hiddenTitle[6]) && (userGuess !== hiddenTitle[7]) &&
+        (userGuess !== hiddenTitle[8]) && (userGuess !== hiddenTitle[9]) && (userGuess !== hiddenTitle[10]) && (userGuess !== hiddenTitle[11]) &&
+        (userGuess !== hiddenTitle[12]) && (userGuess !== hiddenTitle[13]) && (userGuess !== hiddenTitle[14]) && (userGuess !== hiddenTitle[15]) &&
+        (userGuess !== hiddenTitle[16]) && (userGuess !== hiddenTitle[17]) && (userGuess !== hiddenTitle[18]) && (userGuess !== hiddenTitle[19])){
      
         console.log("nothing to see here");
         chances--;
         wrongGuess.textContent += userGuess;
         lives.textContent = "Guesses you have left: " + chances;
     }
-    // } else {
-    //     chances--;
-    //     wrongGuess.textContent += userGuess;
-    //     lives.textContent = "Guesses you have left: " + chances;
-    // }
-
+   
     if (chances === 0) {
         totalLoses.textContent = "Losses: " + losses++;
         chances = 12;
