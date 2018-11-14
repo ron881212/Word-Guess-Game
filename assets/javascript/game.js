@@ -25,7 +25,7 @@ function newGame() {
     // var hiddenTitle = [];
     // var underLine = [];
     var chances = 12;
-    
+
     var totalWins = document.getElementById("wins-text");
     var totalLoses = document.getElementById("lost-text");
     var wrongGuess = document.getElementById("alreadyGuessed-text");
@@ -43,9 +43,10 @@ function newGame() {
     }
 
     for (let i = 0; i < newTitle.length; i++) {
-        if(newTitle[i] === "-"){
+        if (newTitle[i] === "-") {
             underLine.push("-")
-        } else { underLine.push("_"); 
+        } else {
+            underLine.push("_");
         }
     }
 
@@ -71,22 +72,38 @@ document.onkeyup = function (event) {
     var totalWins = document.getElementById("wins-text");
     var totalLoses = document.getElementById("lost-text");
     var lives = document.getElementById("lives-text");
+    var underScore = document.getElementById("underLine-text");
     var userGuess = event.key;
 
     //create a loop that will unhide keys that are guessed correctly
 
-    //keep working on this logic 
-
-    if ((userGuess === hiddenTitle[0]) || (userGuess === hiddenTitle[1])) {
-        console.log("note it");
-
-    } else {
-        chances--;
-        wrongGuess.textContent += userGuess;
-        lives.textContent = "Guesses you have left: " + chances;
+    for (let i = 0; i < hiddenTitle.length; i++) {
+        if (userGuess === hiddenTitle[i]) {
+            console.log("groovy");
+            underLine.push(userGuess);
+        
+        } 
     }
 
-    if(chances === 0){
+    // if (userGuess !== hiddenTitle[j]) {
+    //     chances--;
+    //     wrongGuess.textContent += userGuess;
+    //     lives.textContent = "Guesses you have left: " + chances;
+    // } 
+    
+
+    //keep working on this logic 
+
+    // if ((userGuess === hiddenTitle[0]) || (userGuess === hiddenTitle[1])) {
+    //     console.log("note it");
+
+    // } else {
+    //     chances--;
+    //     wrongGuess.textContent += userGuess;
+    //     lives.textContent = "Guesses you have left: " + chances;
+    // }
+
+    if (chances === 0) {
         totalLoses.textContent = "Losses: " + losses++;
         chances = 12;
         alert("Game over. Press New Game to continue");
