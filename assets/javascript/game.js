@@ -2,6 +2,8 @@ var wins = 0;
 var losses = 1;
 var chances = 12;
 var alreadyGuessed = "";
+var score = 0;
+var spaces = 0;
 
 
 var animeTitles = ["one-piece", "attack-on-titan", "my-hero-academia", "gundam-wing", "jojo", "bleach"]
@@ -50,6 +52,12 @@ function newGame() {
         }
     }
 
+    for (let k = 0; k < hiddenTitle.length; k++) {
+        if (hiddenTitle[k] === "-") {
+            spaces++;
+        } 
+    }
+
     wrongGuess.textContent = "";
     lives.textContent = "Guesses you have left: " + chances;
 
@@ -65,7 +73,7 @@ function newGame() {
 
 document.onkeyup = function (event) {
     // create a varible to store the amount of items in the hiddinTitle array
-    var test = "a";
+    var goldenTicket = hiddenTitle.length - spaces;
 
     var wrongGuess = document.getElementById("alreadyGuessed-text");
     var correctGuess = document.getElementById("correctGuessed-text");
@@ -80,9 +88,13 @@ document.onkeyup = function (event) {
     for (let i = 0; i < hiddenTitle.length; i++) {
         if (userGuess === hiddenTitle[i]) {
             console.log("groovy");
-            underLine.push(userGuess);
-        
+            score++;
+            underLine.push(underLine.indexOf(i));
         } 
+    }
+
+    if (score === goldenTicket){
+        alert("You Won")
     }
 
     // if (userGuess !== hiddenTitle[j]) {
