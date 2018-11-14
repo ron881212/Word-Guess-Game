@@ -1,10 +1,10 @@
 var wins = 0;
-var losses = 0;
+var losses = 1;
 var chances = 12;
 var alreadyGuessed = "";
 
 
-var animeTitles = ["one piece", "attack on titan", "my hero academia", "gundam wing", "jojo", "bleach"]
+var animeTitles = ["one-piece", "attack-on-titan", "my-hero-academia", "gundam-wing", "jojo", "bleach"]
 
 var newTitle = animeTitles[Math.floor(Math.random() * animeTitles.length)];
 
@@ -21,13 +21,20 @@ var hiddenTitle = [];
 var underLine = [];
 
 function newGame() {
+
     // var hiddenTitle = [];
     // var underLine = [];
     var chances = 12;
-    var alreadyGuessed = "";
+    
+    var totalWins = document.getElementById("wins-text");
+    var totalLoses = document.getElementById("lost-text");
+    var wrongGuess = document.getElementById("alreadyGuessed-text");
+    var correctGuess = document.getElementById("correctGuessed-text");
+    var lives = document.getElementById("lives-text");
 
     var underScore = document.getElementById("underLine-text");
     var correctGuess = document.getElementById("correctGuessed-text");
+
     var newTitle = animeTitles[Math.floor(Math.random() * animeTitles.length)];
 
 
@@ -36,9 +43,14 @@ function newGame() {
     }
 
     for (let i = 0; i < newTitle.length; i++) {
-        underLine.push("_");
+        if(newTitle[i] === "-"){
+            underLine.push("-")
+        } else { underLine.push("_"); 
+        }
     }
 
+    wrongGuess.textContent = "";
+    lives.textContent = "Guesses you have left: " + chances;
 
     correctGuess.textContent = hiddenTitle.join(' ');
     underScore.textContent = underLine.join(' ');
@@ -70,10 +82,14 @@ document.onkeyup = function (event) {
 
     } else {
         chances--;
-        wrongGuess.textContent = "Already Guessed: " += userGuess;
+        wrongGuess.textContent += userGuess;
         lives.textContent = "Guesses you have left: " + chances;
     }
 
-
+    if(chances === 0){
+        totalLoses.textContent = "Losses: " + losses++;
+        chances = 12;
+        alert("Game over. Press New Game to continue");
+    }
 
 };
