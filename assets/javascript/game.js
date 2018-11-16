@@ -24,10 +24,14 @@ var underLine = [];
 
 function newGame() {
 
-    // var hiddenTitle = [];
-    // var underLine = [];
+    // if(true){
+    //     var hiddenTitle = [];
+    //     var underLine = [];
+    // }
+    
     var chances = 12;
-
+    
+    
     var totalWins = document.getElementById("wins-text");
     var totalLoses = document.getElementById("lost-text");
     var wrongGuess = document.getElementById("alreadyGuessed-text");
@@ -36,6 +40,7 @@ function newGame() {
 
     var underScore = document.getElementById("underLine-text");
     var correctGuess = document.getElementById("correctGuessed-text");
+    
 
     var newTitle = animeTitles[Math.floor(Math.random() * animeTitles.length)];
 
@@ -43,7 +48,7 @@ function newGame() {
     for (let i = 0; i < newTitle.length; i++) {
         hiddenTitle.push(newTitle[i]);
     }
-
+    
     for (let i = 0; i < newTitle.length; i++) {
         if (newTitle[i] === "-") {
             underLine.push("-")
@@ -58,7 +63,10 @@ function newGame() {
         } 
     }
 
+    var goldenTicket = hiddenTitle.length - spaces;
+
     wrongGuess.textContent = "";
+    
     lives.textContent = "Guesses you have left: " + chances;
 
     correctGuess.textContent = hiddenTitle.join(' ');
@@ -67,13 +75,27 @@ function newGame() {
     // console.log(hiddenTitle);
     // console.log(underLine);
 
+    // if (score === goldenTicket){
+    //     alert("You Won. Press New Game to continue");
+    //     wins++;
+    //     totalWins.textContent = "Wins: " + wins;
+    // }
+
 };
 
 
 
 document.onkeyup = function (event) {
-    // create a varible to store the amount of items in the hiddinTitle array
+
+    function youWin(){
+        alert("You Won. Press New Game to continue");
+    }
+
+    // This variable is the score needed to win
+
     var goldenTicket = hiddenTitle.length - spaces;
+
+    // Variable I need locally 
 
     var wrongGuess = document.getElementById("alreadyGuessed-text");
     var correctGuess = document.getElementById("correctGuessed-text");
@@ -83,33 +105,46 @@ document.onkeyup = function (event) {
     var underScore = document.getElementById("underLine-text");
     var userGuess = event.key;
 
-    //create a loop that will unhide keys that are guessed correctly
+    // This loop determines if you guessed correctly
+
+    
 
     for (let i = 0; i < hiddenTitle.length; i++) {
         if (userGuess === hiddenTitle[i]) {
+            underLine[i] = userGuess;
             console.log("groovy");
             score++;
+            underScore.textContent = underLine.join(" ");
         } 
+        if (userGuess === underLine[i]){
+            console.log("pressed same thing twice");
+        }
     }
+
+    // Logic for winning
 
     if (score === goldenTicket){
-        alert("You Won. Press New Game to continue")
+        wins++;
+        totalWins.textContent = "Wins: " + wins;
+        setTimeout(youWin, 1000);
     }
 
-    //keep working on this logic 
+    // Logic for if you guess incorrectly 
 
     if ((userGuess !== hiddenTitle[0]) && (userGuess !== hiddenTitle[1]) && (userGuess !== hiddenTitle[2]) && (userGuess !== hiddenTitle[3]) &&
         (userGuess !== hiddenTitle[4]) && (userGuess !== hiddenTitle[5]) && (userGuess !== hiddenTitle[6]) && (userGuess !== hiddenTitle[7]) &&
         (userGuess !== hiddenTitle[8]) && (userGuess !== hiddenTitle[9]) && (userGuess !== hiddenTitle[10]) && (userGuess !== hiddenTitle[11]) &&
         (userGuess !== hiddenTitle[12]) && (userGuess !== hiddenTitle[13]) && (userGuess !== hiddenTitle[14]) && (userGuess !== hiddenTitle[15]) &&
         (userGuess !== hiddenTitle[16]) && (userGuess !== hiddenTitle[17]) && (userGuess !== hiddenTitle[18]) && (userGuess !== hiddenTitle[19])){
-     
+        
         console.log("nothing to see here");
         chances--;
         wrongGuess.textContent += userGuess;
         lives.textContent = "Guesses you have left: " + chances;
     }
-   
+    
+    // Logic for losing
+
     if (chances === 0) {
         totalLoses.textContent = "Losses: " + losses++;
         chances = 12;
