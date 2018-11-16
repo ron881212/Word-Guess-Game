@@ -23,12 +23,7 @@ var hiddenTitle = [];
 var underLine = [];
 
 function newGame() {
-
-    // if(true){
-    //     var hiddenTitle = [];
-    //     var underLine = [];
-    // }
-    
+    score = 0;
     var chances = 12;
     
     
@@ -89,6 +84,9 @@ document.onkeyup = function (event) {
 
     function youWin(){
         alert("You Won. Press New Game to continue");
+        hiddenTitle = [];
+        underLine = [];
+        score = 0;
     }
 
     // This variable is the score needed to win
@@ -103,7 +101,12 @@ document.onkeyup = function (event) {
     var totalLoses = document.getElementById("lost-text");
     var lives = document.getElementById("lives-text");
     var underScore = document.getElementById("underLine-text");
-    var userGuess = event.key;
+
+    var input = event.keyCode;
+
+    if(input > 64 && input < 91){
+        var userGuess = event.key.toLowerCase();
+    }
 
     // This loop determines if you guessed correctly
 
@@ -116,9 +119,6 @@ document.onkeyup = function (event) {
             score++;
             underScore.textContent = underLine.join(" ");
         } 
-        if (userGuess === underLine[i]){
-            console.log("pressed same thing twice");
-        }
     }
 
     // Logic for winning
@@ -136,7 +136,7 @@ document.onkeyup = function (event) {
         (userGuess !== hiddenTitle[8]) && (userGuess !== hiddenTitle[9]) && (userGuess !== hiddenTitle[10]) && (userGuess !== hiddenTitle[11]) &&
         (userGuess !== hiddenTitle[12]) && (userGuess !== hiddenTitle[13]) && (userGuess !== hiddenTitle[14]) && (userGuess !== hiddenTitle[15]) &&
         (userGuess !== hiddenTitle[16]) && (userGuess !== hiddenTitle[17]) && (userGuess !== hiddenTitle[18]) && (userGuess !== hiddenTitle[19])){
-        
+    
         console.log("nothing to see here");
         chances--;
         wrongGuess.textContent += userGuess;
@@ -148,6 +148,7 @@ document.onkeyup = function (event) {
     if (chances === 0) {
         totalLoses.textContent = "Losses: " + losses++;
         chances = 12;
+        score = 0;
         alert("Game over. Press New Game to continue");
     }
 
