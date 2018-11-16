@@ -1,5 +1,5 @@
 var wins = 0;
-var losses = 1;
+var losses = 0;
 var chances = 1000;
 var alreadyGuessed = "";
 var score = 0;
@@ -104,6 +104,9 @@ document.onkeyup = function (event) {
     // This loop determines if you guessed correctly
 
     for (let i = 0; i < hiddenTitle.length; i++) {
+        if(userGuess === underLine[i]){
+            break;
+        }
         if (userGuess === hiddenTitle[i]) {
             underLine[i] = userGuess;
             console.log("groovy");
@@ -118,14 +121,13 @@ document.onkeyup = function (event) {
             wins++;
             totalWins.textContent = "Wins: " + wins;  
             setTimeout(youWin, 500); 
-            console.log("im the problem");
             goldenTicket = 1000;
         }
     
 
     // Logic for if you guess incorrectly 
 
-        if (hiddenTitle.length > 2) {
+        if (hiddenTitle.length > 2 && chances > 0) {
             if ((userGuess !== hiddenTitle[0]) && (userGuess !== hiddenTitle[1]) && (userGuess !== hiddenTitle[2]) && (userGuess !== hiddenTitle[3]) &&
                 (userGuess !== hiddenTitle[4]) && (userGuess !== hiddenTitle[5]) && (userGuess !== hiddenTitle[6]) && (userGuess !== hiddenTitle[7]) &&
                 (userGuess !== hiddenTitle[8]) && (userGuess !== hiddenTitle[9]) && (userGuess !== hiddenTitle[10]) && (userGuess !== hiddenTitle[11]) &&
@@ -145,9 +147,7 @@ document.onkeyup = function (event) {
         losses++;
         totalLoses.textContent = "Losses: " + losses;
         setTimeout(youLoss, 500);
-        console.log("no im the problem");
         goldenTicket = 1000;
     }
-    
 
 };
