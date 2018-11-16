@@ -75,15 +75,11 @@ function newGame() {
 document.onkeyup = function (event) {
 
     function youWin(){
-        alert("You Won. Press New Game to continue");
-        hiddenTitle = [];
-        underLine = [];
+        newGame();
     }
 
     function youLoss(){
-        alert("You Lost. Press New Game to continue");
-        hiddenTitle = [];
-        underLine = [];
+        newGame();
     }
 
     // This variable is the score needed to win
@@ -121,7 +117,7 @@ document.onkeyup = function (event) {
         if (score === goldenTicket){
             wins++;
             totalWins.textContent = "Wins: " + wins;  
-            setTimeout(youWin, 1000); 
+            setTimeout(youWin, 500); 
             console.log("im the problem");
             goldenTicket = 1000;
         }
@@ -147,7 +143,7 @@ document.onkeyup = function (event) {
 
     if (chances === 0) {
         losses++;
-        totalLoses.textContent = "Losses: " + losses++;
+        totalLoses.textContent = "Losses: " + losses;
         setTimeout(youLoss, 500);
         console.log("no im the problem");
         goldenTicket = 1000;
