@@ -22,6 +22,7 @@ var underLine = [];
 
 function newGame() {
     score = 0;
+    spaces = 0;
     chances = 12;
 
     hiddenTitle = [];
@@ -122,10 +123,12 @@ document.onkeyup = function (event) {
             totalWins.textContent = "Wins: " + wins;  
             setTimeout(youWin, 1000); 
             console.log("im the problem");
+            goldenTicket = 1000;
         }
     
 
     // Logic for if you guess incorrectly 
+
         if (hiddenTitle.length > 2) {
             if ((userGuess !== hiddenTitle[0]) && (userGuess !== hiddenTitle[1]) && (userGuess !== hiddenTitle[2]) && (userGuess !== hiddenTitle[3]) &&
                 (userGuess !== hiddenTitle[4]) && (userGuess !== hiddenTitle[5]) && (userGuess !== hiddenTitle[6]) && (userGuess !== hiddenTitle[7]) &&
@@ -146,7 +149,8 @@ document.onkeyup = function (event) {
         losses++;
         totalLoses.textContent = "Losses: " + losses++;
         setTimeout(youLoss, 500);
-        console.log("no im the problem")
+        console.log("no im the problem");
+        goldenTicket = 1000;
     }
     
 
