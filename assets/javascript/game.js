@@ -124,23 +124,25 @@ document.onkeyup = function (event) {
 
     // Logic for if you guess incorrectly 
 
-    for (let j = 13; j > incorrect.length; j--) {
+    
 
-        if (hiddenTitle.length > 2 && userGuess !== incorrect[j]) {
-            if ((userGuess !== hiddenTitle[0]) && (userGuess !== hiddenTitle[1]) && (userGuess !== hiddenTitle[2]) && (userGuess !== hiddenTitle[3]) &&
-                (userGuess !== hiddenTitle[4]) && (userGuess !== hiddenTitle[5]) && (userGuess !== hiddenTitle[6]) && (userGuess !== hiddenTitle[7]) &&
-                (userGuess !== hiddenTitle[8]) && (userGuess !== hiddenTitle[9]) && (userGuess !== hiddenTitle[10]) && (userGuess !== hiddenTitle[11]) &&
-                (userGuess !== hiddenTitle[12]) && (userGuess !== hiddenTitle[13]) && (userGuess !== hiddenTitle[14]) && (userGuess !== hiddenTitle[15]) &&
-                (userGuess !== hiddenTitle[16]) && (userGuess !== hiddenTitle[17]) && (userGuess !== hiddenTitle[18]) && (userGuess !== hiddenTitle[19])) {
+        // if (hiddenTitle.length > 2) 
+        //     if ((userGuess !== hiddenTitle[0]) && (userGuess !== hiddenTitle[1]) && (userGuess !== hiddenTitle[2]) && (userGuess !== hiddenTitle[3]) &&
+        //         (userGuess !== hiddenTitle[4]) && (userGuess !== hiddenTitle[5]) && (userGuess !== hiddenTitle[6]) && (userGuess !== hiddenTitle[7]) &&
+        //         (userGuess !== hiddenTitle[8]) && (userGuess !== hiddenTitle[9]) && (userGuess !== hiddenTitle[10]) && (userGuess !== hiddenTitle[11]) &&
+        //         (userGuess !== hiddenTitle[12]) && (userGuess !== hiddenTitle[13]) && (userGuess !== hiddenTitle[14]) && (userGuess !== hiddenTitle[15]) &&
+        //         (userGuess !== hiddenTitle[16]) && (userGuess !== hiddenTitle[17]) && (userGuess !== hiddenTitle[18]) && (userGuess !== hiddenTitle[19])) {
 
+            if(userGuess.indexOf() === -1){
+                
                 console.log("nothing to see here");
                 chances--;
                 incorrect.push(userGuess);
                 wrongGuess.textContent = incorrect.join("");
                 lives.textContent = "Guesses you have left: " + chances;
             }
-        }
-    }
+        
+    
 
     // Logic for losing
 
