@@ -1,3 +1,29 @@
 #correctGuessed-text {
     display: none;
 }
+
+#jumbo {
+    background-color: #ffefaf;
+    height: 380px;
+}
+
+#card1 {
+    background-color: #ffefaf;
+    /* width: 33.3% */
+}
+
+#card2 {
+    background-color: #ffefaf;
+    width: 50%;
+}
+
+#card3 {
+    background-color: #ffefaf;
+    /* width: 33.3% */
+}
+
+#Button,
+#iGiveUp,
+#playHint {
+    background-color: #df1421;
+}

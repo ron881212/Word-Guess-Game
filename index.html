@@ -12,9 +12,9 @@
     <script src="./assets/javascript/game.js"></script>
 </head>
 
-<body background=""></body>
+<body background="./assets/images/default-background.jpg"></body>
 
-<div class="jumbotron mx-5 mb-4">
+<div class="jumbotron mx-5 mb-4" id="jumbo">
     <h1 class="display-4 text-center">Word Guess Game</h1>
     <p class="lead text-center">Guess all of the correct letters in the secret word to win the game. <br> Guess too
         many times incorrectly and you lose.
@@ -26,11 +26,11 @@
     </div>
 </div>
 
-<div class="container">
+<div class="container container-fluid">
 
     <div class="row">
 
-        <div class="card col-md-3" style="width: 18rem;">
+        <div id="card1" class="card col-md" style="width: 18rem;">
             <div class="card-body">
                 <div class="clearfix">
                     <h3 class="ml-5 float-left" id="wins-text">Wins: </h3>
@@ -41,13 +41,14 @@
             </div>
         </div>
 
-        <div class="col-md-5">
-            <h2 class="text-center" id="correctGuessed-text">Ready?</h2>
-            <h1 class="text-center" id="underLine-text"></h1>
+        <div id="card2" class="card text-center">
+            <div class="col-md">
+                <h2 class="text-center mt-5" id="correctGuessed-text">Ready?</h2>
+                <h1 class="text-center mt-5" id="underLine-text">Ready?</h1>
+            </div>
         </div>
 
-
-        <div class="card col-md-4" style="width: 18rem;">
+        <div id="card3" class="card col-md" style="width: 18rem;">
             <div class="card-body">
                 <div class="clearfix">
                     <h3 class="ml-5">Already Guessed: </h3>
