@@ -1,32 +1,39 @@
+// Variables needed in Global scope
+
 var wins = 0;
 var losses = 0;
-// var chances = 1000;
 var alreadyGuessed = "";
 var score = 0;
-// var spaces = 0;
 var goldenTicket = 1000;
 var incorrect = [];
+
+// Array withh amine titles
 
 var animeTitles = ["one-piece", "attack-on-titan", "my-hero-academia", "gundam-wing", "cowboy-bebop", "bleach", "yu-yu-hakusho", "astro-boy",
     "dragonball-z", "hunter-x-hunter", "sword-art-online", "one-punch-man"
 ]
 
+// Calling for random anime from animeTitles array
+
 var newTitle = animeTitles[Math.floor(Math.random() * animeTitles.length)];
+
+// Html elements that need to be in Global scope
 
 var totalWins = document.getElementById("wins-text");
 var totalLoses = document.getElementById("lost-text");
 var wrongGuess = document.getElementById("alreadyGuessed-text");
 var correctGuess = document.getElementById("correctGuessed-text");
 
-// var hiddenText = [];
+// Empty arrays needed to push underlines at the bottom letters from chosen anime into its own array
+
 var hiddenTitle = [];
 var underLine = [];
 
-// Global win/Lose function
+// Global win/Lose function needed to add timeout before picking new random anime
+
 function youWin() {
     newGame();
 }
-
 function youLoss() {
     newGame();
 }
@@ -43,6 +50,11 @@ function iGiveUp() {
     goldenTicket = 1000;
 }
 
+// Hint button will play song from anime title 
+
+function playHint() {
+    
+}
 
 
 function newGame() {
@@ -94,7 +106,7 @@ function newGame() {
     correctGuess.textContent = hiddenTitle.join(' ');
     underScore.textContent = underLine.join(' ');
 
-    // I quit function 
+    // I quit function written for I give up button
 
     function iGiveUp() {
         underScore.textContent = hiddenTitle.join(" ");
@@ -108,6 +120,8 @@ function newGame() {
 
 
 document.onkeyup = function (event) {
+
+    // Global win/Lose function needed to add timeout before picking new random anime 
 
     function youWin() {
         newGame();
@@ -126,12 +140,12 @@ document.onkeyup = function (event) {
     var lives = document.getElementById("lives-text");
     var underScore = document.getElementById("underLine-text");
 
-    var input = event.keyCode;
+    // This allows users to only pick lowercase letters and only a-z keys
 
+    var input = event.keyCode;
     if (input > 64 && input < 91) {
         var userGuess = event.key.toLowerCase();
     }
-
 
     // This loop determines if you guessed correctly
 
@@ -150,18 +164,12 @@ document.onkeyup = function (event) {
     // Logic for if you guess incorrectly 
 
     for (let j = 0; j < 12; j++) {
-        // if((userGuess === incorrect[j]) || (userGuess === hiddenTitle[j])){
-        //     chances++;
-        //     incorrect[j] = "";
-        // }
         if (!underLine.includes(userGuess) && incorrect.indexOf(userGuess) === -1 && hiddenTitle.length > 2) {
-
             console.log("nothing to see here");
             chances--;
             incorrect.push(userGuess);
             wrongGuess.textContent = incorrect.join("");
             lives.textContent = "Guesses you have left: " + chances;
-            // break;
         }
     }
 
