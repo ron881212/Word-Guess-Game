@@ -48,7 +48,7 @@ function iGiveUp() {
     totalLoses.textContent = "Losses: " + losses;
     setTimeout(youLoss, 1500);
     goldenTicket = 1000;
-    stopHint();
+    // stopHint();
 }
 
 // Hint button will play song from anime title lower opacity and change background image
@@ -154,7 +154,7 @@ function playHint() {
 
 function newGame() {
 
-    stopHint();
+    // stopHint();
     
     document.body.style.backgroundImage = "url('../assets/images/default-background.jpg')";
     document.body.style.opacity = "1";
