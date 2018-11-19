@@ -1,14 +1,15 @@
 var wins = 0;
 var losses = 0;
-var chances = 1000;
+// var chances = 1000;
 var alreadyGuessed = "";
 var score = 0;
-var spaces = 0;
+// var spaces = 0;
 var goldenTicket = 1000;
 var incorrect = [];
 
 var animeTitles = ["one-piece", "attack-on-titan", "my-hero-academia", "gundam-wing", "cowboy-bebop", "bleach", "yu-yu-hakusho", "astro-boy",
-    "dragonball-z", "hunter-x-hunter", "sword-art-online", "one-punch-man"]
+    "dragonball-z", "hunter-x-hunter", "sword-art-online", "one-punch-man"
+]
 
 var newTitle = animeTitles[Math.floor(Math.random() * animeTitles.length)];
 
@@ -70,6 +71,7 @@ function newGame() {
     correctGuess.textContent = hiddenTitle.join(' ');
     underScore.textContent = underLine.join(' ');
 
+    
 };
 
 
@@ -99,59 +101,60 @@ document.onkeyup = function (event) {
         var userGuess = event.key.toLowerCase();
     }
 
+
     // This loop determines if you guessed correctly
 
     for (let i = 0; i < hiddenTitle.length; i++) {
-        if (userGuess === underLine[i]) {
-            break;
-        }
+        if(userGuess === underLine[i]){
+            score--;
+        } 
         if (userGuess === hiddenTitle[i]) {
             underLine[i] = userGuess;
-            console.log("groovy");
-            score++;
+            console.log("groovy step 1");
             underScore.textContent = underLine.join(" ");
+            score++;
         }
     }
-
-   
 
     // Logic for if you guess incorrectly 
 
+    for(let j = 0; j < 12; j++){
+        // if((userGuess === incorrect[j]) || (userGuess === hiddenTitle[j])){
+        //     chances++;
+        //     incorrect[j] = "";
+        // }
+        if (!underLine.includes(userGuess) && incorrect.indexOf(userGuess) === -1 && hiddenTitle.length > 2) {
+           
+            console.log("nothing to see here");
+            chances--; 
+            incorrect.push(userGuess);
+            wrongGuess.textContent = incorrect.join("");
+            lives.textContent = "Guesses you have left: " + chances;
+            // break;
+        }
+    } 
+    
+    // Logic for winning
 
-
-    // if (hiddenTitle.length > 2) 
-    //     if ((userGuess !== hiddenTitle[0]) && (userGuess !== hiddenTitle[1]) && (userGuess !== hiddenTitle[2]) && (userGuess !== hiddenTitle[3]) &&
-    //         (userGuess !== hiddenTitle[4]) && (userGuess !== hiddenTitle[5]) && (userGuess !== hiddenTitle[6]) && (userGuess !== hiddenTitle[7]) &&
-    //         (userGuess !== hiddenTitle[8]) && (userGuess !== hiddenTitle[9]) && (userGuess !== hiddenTitle[10]) && (userGuess !== hiddenTitle[11]) &&
-    //         (userGuess !== hiddenTitle[12]) && (userGuess !== hiddenTitle[13]) && (userGuess !== hiddenTitle[14]) && (userGuess !== hiddenTitle[15]) &&
-    //         (userGuess !== hiddenTitle[16]) && (userGuess !== hiddenTitle[17]) && (userGuess !== hiddenTitle[18]) && (userGuess !== hiddenTitle[19])) {
-
-    if (userGuess.indexOf() === -1 && hiddenTitle.length > 2) {
-
-        console.log("nothing to see here");
-        chances--;
-        incorrect.push(userGuess);
-        wrongGuess.textContent = incorrect.join("");
-        lives.textContent = "Guesses you have left: " + chances;
-
-    }
-
-     // Logic for winning
-
-     if (score === goldenTicket) {
+    if (score === goldenTicket) {
         wins++;
         totalWins.textContent = "Wins: " + wins;
-        setTimeout(youWin, 500);
+        setTimeout(youWin, 1500);
         goldenTicket = 1000;
     }
 
     // Logic for losing
 
     if (chances === 0) {
+        underScore.textContent = hiddenTitle.join(" ");
         losses++;
         totalLoses.textContent = "Losses: " + losses;
-        setTimeout(youLoss, 500);
+        setTimeout(youLoss, 1500);
         goldenTicket = 1000;
     }
 
+
 };
+
+
+
