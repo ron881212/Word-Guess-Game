@@ -4,6 +4,7 @@ var wins = 0;
 var losses = 0;
 var alreadyGuessed = "";
 var score = 0;
+var chances = 12;
 var goldenTicket = 1000;
 var incorrect = [];
 
@@ -54,10 +55,12 @@ function iGiveUp() {
 
 function playHint() {
     if(hiddenTitle.join("") === animeTitles[0]){
-        document.body.style.backgroundImage = "url('../assets/images/one-peice.jpg')";
+        document.body.style.backgroundImage = "url('../assets/images/one-piece.jpg')";
         document.body.style.opacity = "0.70";
+        var theme1 = document.getElementById("onePiece"); 
+        theme1.play();
     }  
-    if(hiddenTitle.join("") === animeTitles[1]){
+    if(hiddenTitle.join("") === animeTitles[1]){    
         document.body.style.backgroundImage = "url('../assets/images/AOT.jpg')";
         document.body.style.opacity = "0.70";
     }  
