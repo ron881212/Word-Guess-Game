@@ -48,6 +48,7 @@ function iGiveUp() {
     totalLoses.textContent = "Losses: " + losses;
     setTimeout(youLoss, 1500);
     goldenTicket = 1000;
+    stopHint();
 }
 
 // Hint button will play song from anime title lower opacity and change background image
@@ -121,10 +122,40 @@ function playHint() {
     }  
 }
 
+function stopHint(){
+    document.body.style.backgroundImage = "url('../assets/images/default-background.jpg')";
+    document.body.style.opacity = "1";
+    var stopTheme1 = document.getElementById("onePiece");
+    stopTheme1.pause();
+    var stopTheme2 = document.getElementById("attack");
+    stopTheme2.pause();
+    var stopTheme3 = document.getElementById("hero");
+    stopTheme3.pause();
+    var stopTheme4 = document.getElementById("gundam");
+    stopTheme4.pause();
+    var stopTheme5 = document.getElementById("cowboy");
+    stopTheme5.pause();
+    var stopTheme6 = document.getElementById("bleach");
+    stopTheme6.pause();
+    var stopTheme7 = document.getElementById("YuYu");
+    stopTheme7.pause();
+    var stopTheme8 = document.getElementById("DBZ");
+    stopTheme8.pause();
+    var stopTheme9 = document.getElementById("hunterx");
+    stopTheme9.pause();
+    var stopTheme10 = document.getElementById("sword");
+    stopTheme10.pause();
+    var stopTheme11 = document.getElementById("punch");
+    stopTheme11.pause();
+   
+}
+
 // This runs everytime the new game button is clicked
 
 function newGame() {
 
+    stopHint();
+    
     document.body.style.backgroundImage = "url('../assets/images/default-background.jpg')";
     document.body.style.opacity = "1";
 
