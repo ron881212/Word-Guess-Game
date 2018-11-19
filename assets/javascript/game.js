@@ -9,8 +9,7 @@ var incorrect = [];
 
 // Array withh amine titles
 
-var animeTitles = ["one-piece", "attack-on-titan", "my-hero-academia", "gundam-wing", "cowboy-bebop", "bleach", "yu-yu-hakusho", "astro-boy",
-    "dragonball-z", "hunter-x-hunter", "sword-art-online", "one-punch-man"
+var animeTitles = ["one-piece", "attack-on-titan", "my-hero-academia", "gundam-wing", "cowboy-bebop", "bleach", "yu-yu-hakusho", "dragonball-z", "hunter-x-hunter", "sword-art-online", "one-punch-man"
 ]
 
 // Calling for random anime from animeTitles array
@@ -23,6 +22,7 @@ var totalWins = document.getElementById("wins-text");
 var totalLoses = document.getElementById("lost-text");
 var wrongGuess = document.getElementById("alreadyGuessed-text");
 var correctGuess = document.getElementById("correctGuessed-text");
+var backgroundPic = document.getElementsByTagName("body");
 
 // Empty arrays needed to push underlines at the bottom letters from chosen anime into its own array
 
@@ -50,14 +50,62 @@ function iGiveUp() {
     goldenTicket = 1000;
 }
 
-// Hint button will play song from anime title 
+// Hint button will play song from anime title lower opacity and change background image
 
 function playHint() {
-    
+    if(hiddenTitle.join("") === animeTitles[0]){
+        document.body.style.backgroundImage = "url('../assets/images/one-peice.jpg')";
+        document.body.style.opacity = "0.70";
+    }  
+    if(hiddenTitle.join("") === animeTitles[1]){
+        document.body.style.backgroundImage = "url('../assets/images/AOT.jpg')";
+        document.body.style.opacity = "0.70";
+    }  
+    if(hiddenTitle.join("") === animeTitles[2]){
+        document.body.style.backgroundImage = "url('../assets/images/MHA.jpg')";
+        document.body.style.opacity = "0.70";
+    }  
+    if(hiddenTitle.join("") === animeTitles[3]){
+        document.body.style.backgroundImage = "url('../assets/images/GS.png')";
+        document.body.style.opacity = "0.70";
+    }  
+    if(hiddenTitle.join("") === animeTitles[4]){
+        document.body.style.backgroundImage = "url('../assets/images/CBBB.jpg')";
+        document.body.style.opacity = "0.70";
+    }  
+    if(hiddenTitle.join("") === animeTitles[5]){
+        document.body.style.backgroundImage = "url('../assets/images/Bleach.jpeg')";
+        document.body.style.opacity = "0.70";
+    }  
+    if(hiddenTitle.join("") === animeTitles[6]){
+        document.body.style.backgroundImage = "url('../assets/images/YYH.jpg')";
+        document.body.style.opacity = "0.70";
+    }  
+    if(hiddenTitle.join("") === animeTitles[7]){
+        document.body.style.backgroundImage = "url('../assets/images/DBZ.jpg')";
+        document.body.style.opacity = "0.70";
+    }  
+    if(hiddenTitle.join("") === animeTitles[8]){
+        document.body.style.backgroundImage = "url('../assets/images/HH.jpg')";
+        document.body.style.opacity = "0.70";
+    }  
+    if(hiddenTitle.join("") === animeTitles[9]){
+        document.body.style.backgroundImage = "url('../assets/images/SAO.png')";
+        document.body.style.opacity = "0.70";
+    }  
+    if(hiddenTitle.join("") === animeTitles[10]){
+        document.body.style.backgroundImage = "url('../assets/images/OPM.jpg')";
+        document.body.style.opacity = "0.70";
+    }  
 }
 
+// This runs everytime the new game button is clicked
 
 function newGame() {
+
+    document.body.style.backgroundImage = "url('../assets/images/default-background.jpg')";
+    document.body.style.opacity = "1";
+
     score = 0;
     spaces = 0;
     chances = 12;
@@ -178,7 +226,7 @@ document.onkeyup = function (event) {
     if (score === goldenTicket) {
         wins++;
         totalWins.textContent = "Wins: " + wins;
-        setTimeout(youWin, 1500);
+        setTimeout(youWin, 1000);
         goldenTicket = 1000;
     }
 
@@ -188,7 +236,7 @@ document.onkeyup = function (event) {
         underScore.textContent = hiddenTitle.join(" ");
         losses++;
         totalLoses.textContent = "Losses: " + losses;
-        setTimeout(youLoss, 1500);
+        setTimeout(youLoss, 1000);
         goldenTicket = 1000;
     }
 
