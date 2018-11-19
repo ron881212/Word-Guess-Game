@@ -156,7 +156,7 @@ function newGame() {
 
     // stopHint();
     
-    document.body.style.backgroundImage = "url('../assets/images/default-background.jpg')";
+    document.body.style.backgroundImage = "url('../assets/images/default-background.jpeg')";
     document.body.style.opacity = "1";
 
     score = 0;
