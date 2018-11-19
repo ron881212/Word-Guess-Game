@@ -22,6 +22,29 @@ var correctGuess = document.getElementById("correctGuessed-text");
 var hiddenTitle = [];
 var underLine = [];
 
+// Global win/Lose function
+function youWin() {
+    newGame();
+}
+
+function youLoss() {
+    newGame();
+}
+
+// I quit function written for I give up button
+
+function iGiveUp() {
+    var underScore = document.getElementById("underLine-text");
+    underScore.textContent = hiddenTitle.join(" ");
+    losses++;
+    var totalLoses = document.getElementById("lost-text");
+    totalLoses.textContent = "Losses: " + losses;
+    setTimeout(youLoss, 1500);
+    goldenTicket = 1000;
+}
+
+
+
 function newGame() {
     score = 0;
     spaces = 0;
@@ -71,7 +94,15 @@ function newGame() {
     correctGuess.textContent = hiddenTitle.join(' ');
     underScore.textContent = underLine.join(' ');
 
-    
+    // I quit function 
+
+    function iGiveUp() {
+        underScore.textContent = hiddenTitle.join(" ");
+        losses++;
+        totalLoses.textContent = "Losses: " + losses;
+        setTimeout(youLoss, 1500);
+        goldenTicket = 1000;
+    }
 };
 
 
@@ -105,9 +136,9 @@ document.onkeyup = function (event) {
     // This loop determines if you guessed correctly
 
     for (let i = 0; i < hiddenTitle.length; i++) {
-        if(userGuess === underLine[i]){
+        if (userGuess === underLine[i]) {
             score--;
-        } 
+        }
         if (userGuess === hiddenTitle[i]) {
             underLine[i] = userGuess;
             console.log("groovy step 1");
@@ -118,22 +149,22 @@ document.onkeyup = function (event) {
 
     // Logic for if you guess incorrectly 
 
-    for(let j = 0; j < 12; j++){
+    for (let j = 0; j < 12; j++) {
         // if((userGuess === incorrect[j]) || (userGuess === hiddenTitle[j])){
         //     chances++;
         //     incorrect[j] = "";
         // }
         if (!underLine.includes(userGuess) && incorrect.indexOf(userGuess) === -1 && hiddenTitle.length > 2) {
-           
+
             console.log("nothing to see here");
-            chances--; 
+            chances--;
             incorrect.push(userGuess);
             wrongGuess.textContent = incorrect.join("");
             lives.textContent = "Guesses you have left: " + chances;
             // break;
         }
-    } 
-    
+    }
+
     // Logic for winning
 
     if (score === goldenTicket) {
@@ -154,7 +185,5 @@ document.onkeyup = function (event) {
     }
 
 
+
 };
-
-
-
