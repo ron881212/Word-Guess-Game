@@ -48,115 +48,115 @@ function iGiveUp() {
     totalLoses.textContent = "Losses: " + losses;
     setTimeout(youLoss, 1500);
     goldenTicket = 1000;
-    // stopHint();
+    stopHint();
 }
 
 // Hint button will play song from anime title lower opacity and change background image
 
 function playHint() {
     if(hiddenTitle.join("") === animeTitles[0]){
-        document.body.style.backgroundImage = "url('../assets/images/one-piece.jpg')";
+        document.body.style.backgroundImage = "url('./assets/images/one-piece.jpg')";
         document.body.style.opacity = "0.70";
         var theme1 = document.getElementById("onePiece"); 
         theme1.play();
     }  
     if(hiddenTitle.join("") === animeTitles[1]){    
-        document.body.style.backgroundImage = "url('../assets/images/AOT.jpg')";
+        document.body.style.backgroundImage = "url('./assets/images/AOT.jpg')";
         document.body.style.opacity = "0.70";
         var theme2 = document.getElementById("attack"); 
         theme2.play();
     }  
     if(hiddenTitle.join("") === animeTitles[2]){
-        document.body.style.backgroundImage = "url('../assets/images/MHA.jpg')";
+        document.body.style.backgroundImage = "url('./assets/images/MHA.jpg')";
         document.body.style.opacity = "0.70";
         var theme3 = document.getElementById("hero"); 
         theme3.play();
     }  
     if(hiddenTitle.join("") === animeTitles[3]){
-        document.body.style.backgroundImage = "url('../assets/images/GS.png')";
+        document.body.style.backgroundImage = "url('./assets/images/GS.png')";
         document.body.style.opacity = "0.70";
         var theme4 = document.getElementById("gundam"); 
         theme4.play();
     }  
     if(hiddenTitle.join("") === animeTitles[4]){
-        document.body.style.backgroundImage = "url('../assets/images/CBBB.jpg')";
+        document.body.style.backgroundImage = "url('./assets/images/CBBB.jpg')";
         document.body.style.opacity = "0.70";
         var theme5 = document.getElementById("cowboy"); 
         theme5.play();
     }  
     if(hiddenTitle.join("") === animeTitles[5]){
-        document.body.style.backgroundImage = "url('../assets/images/Bleach.jpeg')";
+        document.body.style.backgroundImage = "url('./assets/images/Bleach.jpeg')";
         document.body.style.opacity = "0.70";
         var theme6 = document.getElementById("bleach"); 
         theme6.play();
     }  
     if(hiddenTitle.join("") === animeTitles[6]){
-        document.body.style.backgroundImage = "url('../assets/images/YYH.jpg')";
+        document.body.style.backgroundImage = "url('./assets/images/YYH.jpg')";
         document.body.style.opacity = "0.70";
         var theme7 = document.getElementById("YuYu"); 
         theme7.play();
     }  
     if(hiddenTitle.join("") === animeTitles[7]){
-        document.body.style.backgroundImage = "url('../assets/images/DBZ.jpg')";
+        document.body.style.backgroundImage = "url('./assets/images/DBZ.jpg')";
         document.body.style.opacity = "0.70";
         var theme8 = document.getElementById("DBZ"); 
         theme8.play();
     }  
     if(hiddenTitle.join("") === animeTitles[8]){
-        document.body.style.backgroundImage = "url('../assets/images/HH.jpg')";
+        document.body.style.backgroundImage = "url('./assets/images/HH.jpg')";
         document.body.style.opacity = "0.70";
         var theme9 = document.getElementById("hunterx"); 
         theme9.play();
     }  
     if(hiddenTitle.join("") === animeTitles[9]){
-        document.body.style.backgroundImage = "url('../assets/images/SAO.png')";
+        document.body.style.backgroundImage = "url('./assets/images/SAO.png')";
         document.body.style.opacity = "0.70";
         var theme10 = document.getElementById("sword"); 
         theme10.play();
     }  
     if(hiddenTitle.join("") === animeTitles[10]){
-        document.body.style.backgroundImage = "url('../assets/images/OPM.jpg')";
+        document.body.style.backgroundImage = "url('./assets/images/OPM.jpg')";
         document.body.style.opacity = "0.70";
         var theme11 = document.getElementById("punch"); 
         theme11.play();
     }  
 }
 
-// function stopHint(){
-//     document.body.style.backgroundImage = "url('../assets/images/default-background.jpg')";
-//     document.body.style.opacity = "1";
-//     var stopTheme1 = document.getElementById("onePiece");
-//     stopTheme1.pause();
-//     var stopTheme2 = document.getElementById("attack");
-//     stopTheme2.pause();
-//     var stopTheme3 = document.getElementById("hero");
-//     stopTheme3.pause();
-//     var stopTheme4 = document.getElementById("gundam");
-//     stopTheme4.pause();
-//     var stopTheme5 = document.getElementById("cowboy");
-//     stopTheme5.pause();
-//     var stopTheme6 = document.getElementById("bleach");
-//     stopTheme6.pause();
-//     var stopTheme7 = document.getElementById("YuYu");
-//     stopTheme7.pause();
-//     var stopTheme8 = document.getElementById("DBZ");
-//     stopTheme8.pause();
-//     var stopTheme9 = document.getElementById("hunterx");
-//     stopTheme9.pause();
-//     var stopTheme10 = document.getElementById("sword");
-//     stopTheme10.pause();
-//     var stopTheme11 = document.getElementById("punch");
-//     stopTheme11.pause();
+function stopHint(){
+    document.body.style.backgroundImage = "url('./assets/images/default-background.jpeg')";
+    document.body.style.opacity = "1";
+    var stopTheme1 = document.getElementById("onePiece");
+    stopTheme1.pause();
+    var stopTheme2 = document.getElementById("attack");
+    stopTheme2.pause();
+    var stopTheme3 = document.getElementById("hero");
+    stopTheme3.pause();
+    var stopTheme4 = document.getElementById("gundam");
+    stopTheme4.pause();
+    var stopTheme5 = document.getElementById("cowboy");
+    stopTheme5.pause();
+    var stopTheme6 = document.getElementById("bleach");
+    stopTheme6.pause();
+    var stopTheme7 = document.getElementById("YuYu");
+    stopTheme7.pause();
+    var stopTheme8 = document.getElementById("DBZ");
+    stopTheme8.pause();
+    var stopTheme9 = document.getElementById("hunterx");
+    stopTheme9.pause();
+    var stopTheme10 = document.getElementById("sword");
+    stopTheme10.pause();
+    var stopTheme11 = document.getElementById("punch");
+    stopTheme11.pause();
    
-// }
+}
 
 // This runs everytime the new game button is clicked
 
 function newGame() {
 
-    // stopHint();
+    stopHint();
     
-    document.body.style.backgroundImage = "url('../assets/images/default-background.jpeg')";
+    document.body.style.backgroundImage = "url('./assets/images/default-background.jpeg')";
     document.body.style.opacity = "1";
 
     score = 0;
